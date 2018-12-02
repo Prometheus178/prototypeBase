@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="User Data Source [5] -">
+  <database-model serializer="dbm" rdbms="UNKNOWN" format-version="4.9">
+    <root id="1">
+      <ServerVersion>5.7</ServerVersion>
+      <DefaultCasing>exact</DefaultCasing>
+    </root>
+    <database id="2" parent="1" name="baseJpa">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="billing_simple"/>
+    <database id="4" parent="1" name="hibernateDB"/>
+    <database id="5" parent="1" name="information_schema"/>
+    <database id="6" parent="1" name="mysql"/>
+    <database id="7" parent="1" name="performance_schema"/>
+    <database id="8" parent="1" name="project"/>
+    <database id="9" parent="1" name="springlibrary"/>
+    <database id="10" parent="1" name="sys"/>
+    <database id="11" parent="1">
+      <Visible>1</Visible>
+    </database>
+    <schema id="12" parent="2">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="13" parent="11">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="14" parent="12" name="album"/>
+    <column id="15" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="14" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(45)|12s</DataType>
+    </column>
+    <column id="17" parent="14" name="content">
+      <Position>3</Position>
+      <DataType>LONGBLOB(max)|-4s</DataType>
+    </column>
+    <index id="18" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="19" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
