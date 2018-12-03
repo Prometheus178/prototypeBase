@@ -1,25 +1,27 @@
 package dao;
 
 import entity.Album;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Order;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 
 import java.util.List;
 
-public class dataDAOimpl implements dataDAO{
-
+public class DataDAOimpl implements DataDAO {
+    @Autowired
     private SessionFactory sessionFactory;
 
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
     @Override
     public List<Album> getAlbum() {
-        return null;
+        Session session = this.sessionFactory.openSession();
+        List<Album> albumList = (List<Album>) session.get(Album.class,1);
+        session.close();
+        return albumList;
     }
-
-
-
     @Override
     public List<Album> getImage() {
         return null;
@@ -34,6 +36,8 @@ public class dataDAOimpl implements dataDAO{
     public List<Album> save() {
         return null;
     }
+
+
 //    private DetachedCriteria createPhotoCriteria(){
 //        DetachedCriteria photoListCriteria = DetachedCriteria.forClass(Album.class , "image");
 //        createAlices(photoListCriteria);

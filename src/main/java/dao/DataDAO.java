@@ -4,7 +4,7 @@ import entity.Album;
 
 import java.util.List;
 
-public interface dataDAO {
+public interface DataDAO {
     List<Album> getAlbum();
     List<Album> getImage();
     List<Album> delete();

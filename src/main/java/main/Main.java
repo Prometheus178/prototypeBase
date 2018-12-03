@@ -1,21 +1,20 @@
 package main;
 
+import dao.DataDAO;
+import dao.DataDAOimpl;
 import entity.Album;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.Session;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = new Configuration()
-                .configure()
-                .buildSessionFactory();
-        Session session = sessionFactory.openSession();
+//        SessionFactory sessionFactory = new Configuration()
+//                .configure()
+//                .buildSessionFactory();
+//        Session session = sessionFactory.openSession();
 
 //        Album photo1 = new Album();
 //        photo1.setName("puppy");
@@ -34,8 +33,13 @@ public class Main {
 //        }
 
 
-        session.close();
-        sessionFactory.close();
+//        session.close();
+//        sessionFactory.close();
+            ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        DataDAOimpl dataDAOimpl = (DataDAOimpl) context.getBean("dataDAOimpl");
+        System.out.println(dataDAOimpl);
+        List<Album> albumList = dataDAOimpl.getAlbum();
+        System.out.println(albumList);
 
     }
 }

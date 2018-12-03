@@ -6,7 +6,7 @@
 
     <class name="entity.Album" table="album" schema="" catalog="baseJpa">
         <id name="id" column="id"/>
-        <property name="name" column="name"/>
+        <property name="description" column="name"/>
         <property name="content" column="content"/>
     </class>
 </hibernate-mapping>
